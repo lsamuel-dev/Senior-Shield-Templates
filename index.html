@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senior Shield AI | Secure Gateway</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* THE SWITCH LOGIC */
+        /* To switch to Plumber mode: Change the body class to 'theme-emergency' */
+        /* To switch to Lawyer mode: Change the body class to 'theme-prestige' */
+
+        .theme-prestige { --primary: #c5a059; --bg: #0f172a; --font-heading: 'Playfair Display', serif; }
+        .theme-emergency { --primary: #ea580c; --bg: #f8fafc; --font-heading: 'Inter', sans-serif; }
+
+        .heading-font { font-family: var(--font-heading); }
+    </style>
+</head>
+
+<body class="theme-prestige transition-colors duration-500">
+
+    <div class="bg-black/90 text-white py-2 text-center text-[10px] tracking-[0.3em] font-bold border-b border-white/10 uppercase">
+        Verified Secure Gateway • Senior Shield AI Active
+    </div>
+
+    <main class="min-h-screen flex flex-col items-center justify-center px-6 transition-all">
+        
+        <div class="mb-12 text-center">
+            <div class="inline-block p-4 bg-white/5 border border-white/10 backdrop-blur-md rounded-lg mb-4">
+                <h2 class="heading-font text-3xl font-black tracking-tighter text-blue-900 uppercase italic">
+    Piasta Law
+</h2>
+            </div>
+        </div>
+
+        <div class="max-w-xl w-full text-center">
+            <h1 class="heading-font text-4xl md:text-5xl mb-6 leading-tight">
+                Secure Priority Access
+            </h1>
+            <p class="text-lg opacity-70 mb-10 leading-relaxed font-sans">
+                You have been redirected to a hardened security portal. Your connection is now encrypted and protected from malicious redirects.
+            </p>
+
+            <div class="space-y-4">
+                <a href="tel:+10000000000" id="main-btn" class="block w-full py-6 rounded-xl font-black text-2xl shadow-2xl transition-all transform active:scale-95 uppercase tracking-widest">
+                    Call Now
+                </a>
+                <p class="text-xs opacity-50 font-sans">Identity & Data Privacy Guaranteed</p>
+            </div>
+        </div>
+
+    </main>
+
+    <style>
+        .theme-prestige { background-color: var(--bg); color: white; }
+        .theme-prestige #main-btn { background-color: var(--primary); color: white; }
+        
+        .theme-emergency { background-color: var(--bg); color: #1e293b; }
+        .theme-emergency #main-btn { background-color: #16a34a; color: white; box-shadow: 0 10px 0 0 #14532d; }
+    </style>
+
+</body>
+</html>
