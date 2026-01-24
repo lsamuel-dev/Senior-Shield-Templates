@@ -1,114 +1,254 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Senior Shield AI | Secure Gateway</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-    
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+
     <style>
-        /* THE SWITCH LOGIC */
-        /* Lawyer Mode: .theme-prestige | Plumber Mode: .theme-emergency */
-        .theme-prestige { --primary: #c5a059; --bg: #0f172a; --text: #ffffff; --font-heading: 'Playfair Display', serif; --accent: rgba(255,255,255,0.1); }
-        .theme-emergency { --primary: #16a34a; --bg: #f8fafc; --text: #1e293b; --font-heading: 'Inter', sans-serif; --accent: rgba(0,0,0,0.05); }
+      /* THE SWITCH LOGIC */
+      /* Lawyer Mode: .theme-prestige | Plumber Mode: .theme-emergency */
+      .theme-prestige {
+        --primary: #c5a059;
+        --bg: #0f172a;
+        --text: #ffffff;
+        --font-heading: "Playfair Display", serif;
+        --accent: rgba(255, 255, 255, 0.1);
+      }
+      .theme-emergency {
+        --primary: #16a34a;
+        --bg: #f8fafc;
+        --text: #1e293b;
+        --font-heading: "Inter", sans-serif;
+        --accent: rgba(0, 0, 0, 0.05);
+      }
 
-        body { background-color: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; }
-        .heading-font { font-family: var(--font-heading); }
-        
-        #main-btn { background-color: var(--primary); color: white; }
-        .theme-emergency #main-btn { box-shadow: 0 8px 0 0 #14532d; }
-        
-        /* Ensures branding stays visible in both modes */
-        .brand-container { background-color: var(--accent); border: 1px solid rgba(128,128,128,0.2); }
-        .theme-emergency .brand-text { color: #1e3a8a; } /* Strong blue for Zaragoza */
-        .theme-prestige .brand-text { color: #ffffff; }
+      body {
+        background-color: var(--bg);
+        color: var(--text);
+        font-family: "Inter", sans-serif;
+      }
+      .heading-font {
+        font-family: var(--font-heading);
+      }
+
+      #main-btn {
+        background-color: var(--primary);
+        color: white;
+      }
+      .theme-emergency #main-btn {
+        box-shadow: 0 8px 0 0 #14532d;
+      }
+
+      /* Ensures branding stays visible in both modes */
+      .brand-container {
+        background-color: var(--accent);
+        border: 1px solid rgba(128, 128, 128, 0.2);
+      }
+      .theme-emergency .brand-text {
+        color: #1e3a8a;
+      } /* Strong blue for Zaragoza */
+      .theme-prestige .brand-text {
+        color: #ffffff;
+      }
     </style>
-</head>
+  </head>
 
-<body class="theme-emergency transition-colors duration-500">
-
-    <div class="bg-black/90 text-white py-2 text-center text-[10px] tracking-[0.3em] font-bold border-b border-white/10 uppercase">
-        Verified Secure Gateway • Senior Shield AI Active
+  <body class="theme-emergency transition-colors duration-500">
+    <div
+      class="bg-black/90 text-white py-2 text-center text-[10px] tracking-[0.3em] font-bold border-b border-white/10 uppercase"
+    >
+      Verified Secure Gateway • Senior Shield AI Active
     </div>
 
-    <main class="min-h-screen flex flex-col items-center justify-center px-6 transition-all pb-20">
-        
-        <div class="mb-8 text-center mt-12">
-            <div class="brand-container inline-block p-4 backdrop-blur-md rounded-lg mb-4">
-                <h2 class="brand-text heading-font text-2xl font-black uppercase italic tracking-[0.15em]">
-                    Elite Plumbing Services
-                </h2>
-            </div>
+    <main
+      class="min-h-screen flex flex-col items-center justify-center px-6 transition-all pb-20"
+    >
+      <div class="mb-8 text-center mt-12">
+        <div
+          class="brand-container inline-block p-4 backdrop-blur-md rounded-lg mb-4"
+        >
+          <h2
+            class="brand-text heading-font text-2xl font-black uppercase italic tracking-[0.15em]"
+          >
+            Elite Plumbing Services
+          </h2>
+        </div>
+      </div>
+
+      <div class="max-w-xl w-full text-center mb-12">
+        <h1
+          class="heading-font text-4xl md:text-5xl mb-6 leading-tight font-black"
+        >
+          Secure Priority Access
+        </h1>
+        <p class="text-base opacity-80 mb-8 leading-relaxed font-sans">
+          You have been redirected to a hardened security portal. Your
+          connection is now encrypted and protected from malicious redirects.
+        </p>
+
+        <div class="space-y-4">
+          <a
+            href="tel:+10000000000"
+            id="main-btn"
+            class="block w-full py-5 rounded-xl font-black text-xl shadow-2xl transition-all transform active:scale-95 uppercase tracking-widest text-center"
+          >
+            Call Now
+          </a>
+          <p
+            class="text-[10px] opacity-60 font-sans uppercase tracking-[0.2em]"
+          >
+            Identity & Data Privacy Guaranteed
+          </p>
+        </div>
+      </div>
+
+      <div
+        id="detector-container"
+        class="max-w-md w-full rounded-2xl p-6 shadow-xl border border-gray-200"
+        style="background-color: var(--accent)"
+      >
+        <div class="flex items-center gap-3 mb-4">
+          <div class="h-2 w-2 rounded-full bg-green-500 animate-pulse"></div>
+          <h3 class="font-bold text-sm tracking-wide uppercase">
+            Phishing Verification Suite
+          </h3>
         </div>
 
-        <div class="max-w-xl w-full text-center mb-12">
-            <h1 class="heading-font text-4xl md:text-5xl mb-6 leading-tight font-black">
-                Secure Priority Access
-            </h1>
-            <p class="text-base opacity-80 mb-8 leading-relaxed font-sans">
-                You have been redirected to a hardened security portal. Your connection is now encrypted and protected from malicious redirects.
-            </p>
+        <textarea
+          id="userInput"
+          rows="3"
+          class="w-full p-3 rounded-lg border border-gray-300 text-slate-900 bg-white font-sans text-xs focus:ring-2 focus:ring-green-500 outline-none transition-all placeholder:text-slate-400"
+          placeholder="Paste suspicious text here to scan for red flags..."
+        ></textarea>
 
-            <div class="space-y-4">
-                <a href="tel:+10000000000" id="main-btn" class="block w-full py-5 rounded-xl font-black text-xl shadow-2xl transition-all transform active:scale-95 uppercase tracking-widest text-center">
-                    Call Now
-                </a>
-                <p class="text-[10px] opacity-60 font-sans uppercase tracking-[0.2em]">Identity & Data Privacy Guaranteed</p>
-            </div>
+        <div
+          id="riskStatus"
+          class="mt-4 p-3 rounded-lg text-[11px] font-bold uppercase tracking-widest text-center transition-all duration-300 bg-white/50 text-slate-500 border border-gray-200"
+        >
+          System Ready: Awaiting Input
         </div>
-
-        <div id="detector-container" class="max-w-md w-full rounded-2xl p-6 shadow-xl border border-gray-200" style="background-color: var(--accent);">
-            <div class="flex items-center gap-3 mb-4">
-                <div class="h-2 w-2 rounded-full bg-green-500 animate-pulse"></div>
-                <h3 class="font-bold text-sm tracking-wide uppercase">Phishing Verification Suite</h3>
-            </div>
-            
-            <textarea id="userInput" rows="3" 
-                class="w-full p-3 rounded-lg border border-gray-300 text-slate-900 bg-white font-sans text-xs focus:ring-2 focus:ring-green-500 outline-none transition-all placeholder:text-slate-400"
-                placeholder="Paste suspicious text here to scan for red flags..."></textarea>
-            
-            <div id="riskStatus" class="mt-4 p-3 rounded-lg text-[11px] font-bold uppercase tracking-widest text-center transition-all duration-300 bg-white/50 text-slate-500 border border-gray-200">
-                System Ready: Awaiting Input
-            </div>
-        </div>
-
+        <p
+          style="
+            font-size: 9px;
+            color: #94a3b8;
+            margin-top: 8px;
+            text-align: center;
+            line-height: 1.2;
+          "
+        >
+          DISCLAIMER: Senior Shield AI is a decision-support tool and does not
+          guarantee the detection of all threats. Always consult with a
+          professional before sharing sensitive data.
+        </p>
+      </div>
     </main>
 
     <script>
-        const input = document.getElementById('userInput');
-        const status = document.getElementById('riskStatus');
-        const redFlags = ['authorization', 'assist me', 'opentaskcloud', 'final authorization', 'completed the transaction'];
+      const input = document.getElementById("userInput");
+      const status = document.getElementById("riskStatus");
 
-        input.addEventListener('input', function() {
-            const text = input.value.toLowerCase();
-            let risk = 'No Threats Detected';
-            let bgColor = '#dcfce7'; 
-            let textColor = '#166534'; 
+      // THE ULTIMATE RED FLAG DATABASE
+      const redFlags = [
+        // Fiverr/Platform Scams
+        "authorization",
+        "assist me",
+        "opentaskcloud",
+        "final authorization",
+        "completed the transaction",
+        "seller protection",
+        "qr code",
+        "verify account",
 
-            if (text.trim() === "") {
-                status.textContent = "System Ready: Awaiting Input";
-                status.style.backgroundColor = "transparent";
-                status.style.color = "#64748b";
-                return;
-            }
+        // Identity & Financial Phishing
+        "ssn",
+        "social security",
+        "bank account",
+        "routing number",
+        "card number",
+        "password",
+        "security code",
+        "cvv",
+        "account login",
+        "mothers maiden",
 
-            const found = redFlags.filter(flag => text.includes(flag));
-            
-            if (text.includes('opentaskcloud') || found.length > 2) {
-                risk = '⚠️ HIGH RISK: Phishing Detected';
-                bgColor = '#fee2e2';
-                textColor = '#991b1b';
-            } else if (found.length > 0) {
-                risk = 'MODERATE RISK: Exercise Caution';
-                bgColor = '#fef3c7';
-                textColor = '#92400e';
-            }
+        // High-Pressure Scams
+        "immediately",
+        "urgent",
+        "account suspended",
+        "legal action",
+        "lawsuit",
+        "irs",
+        "police",
+        "warrant",
+        "federal",
+        "overdue payment",
+        "check out now",
 
-            status.textContent = risk;
-            status.style.backgroundColor = bgColor;
-            status.style.color = textColor;
-        });
+        // Transactional Bait
+        "send me your",
+        "deposit",
+        "western union",
+        "zelle",
+        "cashapp",
+        "wire transfer",
+        "overpayment",
+        "refund",
+        "reimbursement",
+        "bitcoin",
+        "crypto",
+      ];
+
+      input.addEventListener("input", function () {
+        const text = input.value.toLowerCase();
+        let risk = "No Threats Detected";
+        let bgColor = "#dcfce7";
+        let textColor = "#166534";
+
+        if (text.trim() === "") {
+          status.textContent = "System Ready: Awaiting Input";
+          status.style.backgroundColor = "transparent";
+          status.style.color = "#64748b";
+          return;
+        }
+
+        // Logic: Find all matches
+        const foundFlags = redFlags.filter((flag) => text.includes(flag));
+
+        // CRITICAL THREAT LOGIC (Instant High Risk)
+        const criticalThreats = [
+          "ssn",
+          "social security",
+          "password",
+          "opentaskcloud",
+          "zelle",
+          "bank account",
+        ];
+        const hasCritical = criticalThreats.some((threat) =>
+          text.includes(threat),
+        );
+
+        if (hasCritical || foundFlags.length >= 2) {
+          risk = "⚠️ HIGH RISK: Phishing Detected";
+          bgColor = "#fee2e2"; // Light Red
+          textColor = "#991b1b"; // Dark Red
+        }
+        // MODERATE THREAT LOGIC (Any single suspicious word)
+        else if (foundFlags.length > 0) {
+          risk = "MODERATE RISK: Exercise Caution";
+          bgColor = "#fef3c7"; // Light Amber
+          textColor = "#92400e"; // Dark Amber
+        }
+
+        status.textContent = risk;
+        status.style.backgroundColor = bgColor;
+        status.style.color = textColor;
+      });
     </script>
-</body>
+  </body>
 </html>
