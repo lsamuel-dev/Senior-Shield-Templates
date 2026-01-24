@@ -8,14 +8,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     
     <style>
-        .theme-prestige { --primary: #c5a059; --bg: #0f172a; --font-heading: 'Playfair Display', serif; }
+        /* THE SWITCH LOGIC */
+        /* Lawyer Mode: .theme-prestige | Plumber Mode: .theme-emergency */
+        .theme-prestige { --primary: #c5a059; --bg: #0f172a; --text: #ffffff; --font-heading: 'Playfair Display', serif; --accent: rgba(255,255,255,0.1); }
+        .theme-emergency { --primary: #16a34a; --bg: #f8fafc; --text: #1e293b; --font-heading: 'Inter', sans-serif; --accent: rgba(0,0,0,0.05); }
+
+        body { background-color: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; }
         .heading-font { font-family: var(--font-heading); }
-        .theme-prestige { background-color: var(--bg); color: white; }
-        .theme-prestige #main-btn { background-color: var(--primary); color: white; }
+        
+        #main-btn { background-color: var(--primary); color: white; }
+        .theme-emergency #main-btn { box-shadow: 0 8px 0 0 #14532d; }
+        
+        /* Ensures branding stays visible in both modes */
+        .brand-container { background-color: var(--accent); border: 1px solid rgba(128,128,128,0.2); }
+        .theme-emergency .brand-text { color: #1e3a8a; } /* Strong blue for Zaragoza */
+        .theme-prestige .brand-text { color: #ffffff; }
     </style>
 </head>
 
-<body class="theme-prestige transition-colors duration-500">
+<body class="theme-emergency transition-colors duration-500">
 
     <div class="bg-black/90 text-white py-2 text-center text-[10px] tracking-[0.3em] font-bold border-b border-white/10 uppercase">
         Verified Secure Gateway • Senior Shield AI Active
@@ -24,18 +35,18 @@
     <main class="min-h-screen flex flex-col items-center justify-center px-6 transition-all pb-20">
         
         <div class="mb-8 text-center mt-12">
-            <div class="inline-block p-4 bg-white/5 border border-white/10 backdrop-blur-md rounded-lg mb-4">
-                <h2 class="heading-font text-2xl font-black tracking-tighter text-white uppercase italic">
-                    Piasta Law
+            <div class="brand-container inline-block p-4 backdrop-blur-md rounded-lg mb-4">
+                <h2 class="brand-text heading-font text-2xl font-black uppercase italic tracking-[0.15em]">
+                    Elite Plumbing Services
                 </h2>
             </div>
         </div>
 
         <div class="max-w-xl w-full text-center mb-12">
-            <h1 class="heading-font text-4xl md:text-5xl mb-6 leading-tight">
+            <h1 class="heading-font text-4xl md:text-5xl mb-6 leading-tight font-black">
                 Secure Priority Access
             </h1>
-            <p class="text-base opacity-70 mb-8 leading-relaxed font-sans">
+            <p class="text-base opacity-80 mb-8 leading-relaxed font-sans">
                 You have been redirected to a hardened security portal. Your connection is now encrypted and protected from malicious redirects.
             </p>
 
@@ -43,21 +54,21 @@
                 <a href="tel:+10000000000" id="main-btn" class="block w-full py-5 rounded-xl font-black text-xl shadow-2xl transition-all transform active:scale-95 uppercase tracking-widest text-center">
                     Call Now
                 </a>
-                <p class="text-[10px] opacity-50 font-sans uppercase tracking-[0.2em]">Identity & Data Privacy Guaranteed</p>
+                <p class="text-[10px] opacity-60 font-sans uppercase tracking-[0.2em]">Identity & Data Privacy Guaranteed</p>
             </div>
         </div>
 
-        <div id="detector-container" class="max-w-md w-full bg-white/5 border border-white/10 backdrop-blur-sm rounded-2xl p-6 shadow-xl">
+        <div id="detector-container" class="max-w-md w-full rounded-2xl p-6 shadow-xl border border-gray-200" style="background-color: var(--accent);">
             <div class="flex items-center gap-3 mb-4">
                 <div class="h-2 w-2 rounded-full bg-green-500 animate-pulse"></div>
-                <h3 class="text-white font-bold text-sm tracking-wide uppercase">Phishing Verification Suite</h3>
+                <h3 class="font-bold text-sm tracking-wide uppercase">Phishing Verification Suite</h3>
             </div>
             
             <textarea id="userInput" rows="3" 
-                class="w-full p-3 rounded-lg border border-white/10 text-white bg-white/5 font-sans text-xs focus:border-[#c5a059] focus:ring-0 outline-none transition-all placeholder:text-white/30"
+                class="w-full p-3 rounded-lg border border-gray-300 text-slate-900 bg-white font-sans text-xs focus:ring-2 focus:ring-green-500 outline-none transition-all placeholder:text-slate-400"
                 placeholder="Paste suspicious text here to scan for red flags..."></textarea>
             
-            <div id="riskStatus" class="mt-4 p-3 rounded-lg text-[11px] font-bold uppercase tracking-widest text-center transition-all duration-300 bg-white/5 text-white/50 border border-white/5">
+            <div id="riskStatus" class="mt-4 p-3 rounded-lg text-[11px] font-bold uppercase tracking-widest text-center transition-all duration-300 bg-white/50 text-slate-500 border border-gray-200">
                 System Ready: Awaiting Input
             </div>
         </div>
@@ -72,15 +83,13 @@
         input.addEventListener('input', function() {
             const text = input.value.toLowerCase();
             let risk = 'No Threats Detected';
-            let bgColor = 'rgba(34, 197, 94, 0.1)'; 
-            let borderColor = 'rgba(34, 197, 94, 0.2)';
-            let textColor = '#4ade80'; 
+            let bgColor = '#dcfce7'; 
+            let textColor = '#166534'; 
 
             if (text.trim() === "") {
                 status.textContent = "System Ready: Awaiting Input";
-                status.style.backgroundColor = "rgba(255,255,255,0.05)";
-                status.style.borderColor = "rgba(255,255,255,0.05)";
-                status.style.color = "rgba(255,255,255,0.5)";
+                status.style.backgroundColor = "transparent";
+                status.style.color = "#64748b";
                 return;
             }
 
@@ -88,19 +97,16 @@
             
             if (text.includes('opentaskcloud') || found.length > 2) {
                 risk = '⚠️ HIGH RISK: Phishing Detected';
-                bgColor = 'rgba(239, 68, 68, 0.2)';
-                borderColor = 'rgba(239, 68, 68, 0.4)';
-                textColor = '#f87171';
+                bgColor = '#fee2e2';
+                textColor = '#991b1b';
             } else if (found.length > 0) {
                 risk = 'MODERATE RISK: Exercise Caution';
-                bgColor = 'rgba(245, 158, 11, 0.2)';
-                borderColor = 'rgba(245, 158, 11, 0.4)';
-                textColor = '#fbbf24';
+                bgColor = '#fef3c7';
+                textColor = '#92400e';
             }
 
             status.textContent = risk;
             status.style.backgroundColor = bgColor;
-            status.style.borderColor = borderColor;
             status.style.color = textColor;
         });
     </script>
