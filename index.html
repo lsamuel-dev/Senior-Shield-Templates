@@ -8,14 +8,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     
     <style>
-        /* THE SWITCH LOGIC */
-        /* To switch to Plumber mode: Change the body class to 'theme-emergency' */
-        /* To switch to Lawyer mode: Change the body class to 'theme-prestige' */
-
         .theme-prestige { --primary: #c5a059; --bg: #0f172a; --font-heading: 'Playfair Display', serif; }
-        .theme-emergency { --primary: #ea580c; --bg: #f8fafc; --font-heading: 'Inter', sans-serif; }
-
         .heading-font { font-family: var(--font-heading); }
+        .theme-prestige { background-color: var(--bg); color: white; }
+        .theme-prestige #main-btn { background-color: var(--primary); color: white; }
     </style>
 </head>
 
@@ -25,41 +21,88 @@
         Verified Secure Gateway • Senior Shield AI Active
     </div>
 
-    <main class="min-h-screen flex flex-col items-center justify-center px-6 transition-all">
+    <main class="min-h-screen flex flex-col items-center justify-center px-6 transition-all pb-20">
         
-        <div class="mb-12 text-center">
+        <div class="mb-8 text-center mt-12">
             <div class="inline-block p-4 bg-white/5 border border-white/10 backdrop-blur-md rounded-lg mb-4">
-                <h2 class="heading-font text-3xl font-black tracking-tighter text-blue-900 uppercase italic">
-    Piasta Law
-</h2>
+                <h2 class="heading-font text-2xl font-black tracking-tighter text-white uppercase italic">
+                    Piasta Law
+                </h2>
             </div>
         </div>
 
-        <div class="max-w-xl w-full text-center">
+        <div class="max-w-xl w-full text-center mb-12">
             <h1 class="heading-font text-4xl md:text-5xl mb-6 leading-tight">
                 Secure Priority Access
             </h1>
-            <p class="text-lg opacity-70 mb-10 leading-relaxed font-sans">
+            <p class="text-base opacity-70 mb-8 leading-relaxed font-sans">
                 You have been redirected to a hardened security portal. Your connection is now encrypted and protected from malicious redirects.
             </p>
 
             <div class="space-y-4">
-                <a href="tel:+10000000000" id="main-btn" class="block w-full py-6 rounded-xl font-black text-2xl shadow-2xl transition-all transform active:scale-95 uppercase tracking-widest">
+                <a href="tel:+10000000000" id="main-btn" class="block w-full py-5 rounded-xl font-black text-xl shadow-2xl transition-all transform active:scale-95 uppercase tracking-widest text-center">
                     Call Now
                 </a>
-                <p class="text-xs opacity-50 font-sans">Identity & Data Privacy Guaranteed</p>
+                <p class="text-[10px] opacity-50 font-sans uppercase tracking-[0.2em]">Identity & Data Privacy Guaranteed</p>
+            </div>
+        </div>
+
+        <div id="detector-container" class="max-w-md w-full bg-white/5 border border-white/10 backdrop-blur-sm rounded-2xl p-6 shadow-xl">
+            <div class="flex items-center gap-3 mb-4">
+                <div class="h-2 w-2 rounded-full bg-green-500 animate-pulse"></div>
+                <h3 class="text-white font-bold text-sm tracking-wide uppercase">Phishing Verification Suite</h3>
+            </div>
+            
+            <textarea id="userInput" rows="3" 
+                class="w-full p-3 rounded-lg border border-white/10 text-white bg-white/5 font-sans text-xs focus:border-[#c5a059] focus:ring-0 outline-none transition-all placeholder:text-white/30"
+                placeholder="Paste suspicious text here to scan for red flags..."></textarea>
+            
+            <div id="riskStatus" class="mt-4 p-3 rounded-lg text-[11px] font-bold uppercase tracking-widest text-center transition-all duration-300 bg-white/5 text-white/50 border border-white/5">
+                System Ready: Awaiting Input
             </div>
         </div>
 
     </main>
 
-    <style>
-        .theme-prestige { background-color: var(--bg); color: white; }
-        .theme-prestige #main-btn { background-color: var(--primary); color: white; }
-        
-        .theme-emergency { background-color: var(--bg); color: #1e293b; }
-        .theme-emergency #main-btn { background-color: #16a34a; color: white; box-shadow: 0 10px 0 0 #14532d; }
-    </style>
+    <script>
+        const input = document.getElementById('userInput');
+        const status = document.getElementById('riskStatus');
+        const redFlags = ['authorization', 'assist me', 'opentaskcloud', 'final authorization', 'completed the transaction'];
 
+        input.addEventListener('input', function() {
+            const text = input.value.toLowerCase();
+            let risk = 'No Threats Detected';
+            let bgColor = 'rgba(34, 197, 94, 0.1)'; 
+            let borderColor = 'rgba(34, 197, 94, 0.2)';
+            let textColor = '#4ade80'; 
+
+            if (text.trim() === "") {
+                status.textContent = "System Ready: Awaiting Input";
+                status.style.backgroundColor = "rgba(255,255,255,0.05)";
+                status.style.borderColor = "rgba(255,255,255,0.05)";
+                status.style.color = "rgba(255,255,255,0.5)";
+                return;
+            }
+
+            const found = redFlags.filter(flag => text.includes(flag));
+            
+            if (text.includes('opentaskcloud') || found.length > 2) {
+                risk = '⚠️ HIGH RISK: Phishing Detected';
+                bgColor = 'rgba(239, 68, 68, 0.2)';
+                borderColor = 'rgba(239, 68, 68, 0.4)';
+                textColor = '#f87171';
+            } else if (found.length > 0) {
+                risk = 'MODERATE RISK: Exercise Caution';
+                bgColor = 'rgba(245, 158, 11, 0.2)';
+                borderColor = 'rgba(245, 158, 11, 0.4)';
+                textColor = '#fbbf24';
+            }
+
+            status.textContent = risk;
+            status.style.backgroundColor = bgColor;
+            status.style.borderColor = borderColor;
+            status.style.color = textColor;
+        });
+    </script>
 </body>
 </html>
