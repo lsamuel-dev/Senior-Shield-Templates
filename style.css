@@ -1,0 +1,40 @@
+/* 1. Kill the default browser spacing */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; /* This stops the scroll bar from appearing */
+}
+
+/* 2. The Master Container - Force it to be the exact screen size */
+.gateway-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  padding: 15px; /* Minimal padding for the 'Sage' look */
+  justify-content: space-between; /* Pins name to top, phishing to bottom */
+}
+
+/* 3. The Images - They are usually the culprit for scrolling */
+.gateway-wrapper img {
+  max-height: 30vh; /* Limits image to 30% of screen height */
+  width: auto;
+  object-fit: contain;
+}
+
+/* 4. The Content Sections - Let them shrink */
+.header-section,
+.phishing-area {
+  flex-shrink: 0; /* Don't let these disappear */
+}
+
+.middle-content {
+  flex-grow: 1; /* This takes up only what is left over */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
